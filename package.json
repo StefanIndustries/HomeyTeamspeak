@@ -1,0 +1,21 @@
+{
+  "name": "com.teamspeak",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test test/*.test.cjs",
+    "validate": "homey app validate --level publish",
+    "run": "homey app run --remote",
+    "publish": "homey app publish"
+  },
+  "dependencies": {
+    "node-ts": "^8.0.12"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^16.1.9",
+    "@types/homey": "npm:homey-apps-sdk-v3-types@^1.8.3",
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}

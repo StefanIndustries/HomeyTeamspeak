@@ -1,0 +1,73 @@
+{
+  "title": {
+    "en": "A specific user left the server",
+    "nl": "Een specifieke gebruiker verliet de server"
+  },
+  "titleFormatted": {
+    "en": "[[user]] left the server",
+    "nl": "[[user]] verliet de server"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    },
+    {
+      "type": "autocomplete",
+      "name": "user",
+      "title": {
+        "en": "User",
+        "nl": "Gebruiker"
+      },
+      "placeholder": {
+        "en": "Nickname",
+        "nl": "Bijnaam"
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "name": "nickname",
+      "type": "string",
+      "title": {
+        "en": "Nickname",
+        "nl": "Bijnaam"
+      },
+      "example": {
+        "en": "Stefan",
+        "nl": "Stefan"
+      }
+    },
+    {
+      "name": "channel",
+      "type": "string",
+      "title": {
+        "en": "Channel",
+        "nl": "Kanaal"
+      },
+      "example": {
+        "en": "Lobby",
+        "nl": "Lobby"
+      }
+    },
+    {
+      "name": "online_minutes",
+      "type": "number",
+      "title": {
+        "en": "Minutes online",
+        "nl": "Minuten online"
+      },
+      "example": 95
+    },
+    {
+      "name": "online_users",
+      "type": "number",
+      "title": {
+        "en": "Online users",
+        "nl": "Online gebruikers"
+      },
+      "example": 3
+    }
+  ]
+}

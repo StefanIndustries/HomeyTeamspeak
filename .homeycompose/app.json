@@ -1,0 +1,67 @@
+{
+  "id": "com.teamspeak",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "runtime": "nodejs",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "name": {
+    "en": "TeamSpeak"
+  },
+  "description": {
+    "en": "See who is online on your TeamSpeak server and automate on it.",
+    "nl": "Zie wie er online is op je TeamSpeak server en automatiseer erop."
+  },
+  "category": [
+    "internet"
+  ],
+  "tags": {
+    "en": [
+      "teamspeak",
+      "ts3",
+      "voice chat",
+      "gaming",
+      "server query",
+      "online users"
+    ],
+    "nl": [
+      "teamspeak",
+      "ts3",
+      "voicechat",
+      "gaming",
+      "server query",
+      "online gebruikers"
+    ]
+  },
+  "brandColor": "#1C80BE",
+  "homepage": "https://teamspeak.com/",
+  "source": "https://github.com/StefanIndustries/HomeyTeamspeak",
+  "bugs": {
+    "url": "https://github.com/StefanIndustries/HomeyTeamspeak/issues"
+  },
+  "support": "https://github.com/StefanIndustries/HomeyTeamspeak/issues",
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Stefan Simon"
+  },
+  "contributing": {
+    "donate": {
+      "bunq": {
+        "username": "StefanJSimon"
+      },
+      "paypal": {
+        "username": "StefanIndustries96"
+      }
+    }
+  }
+}

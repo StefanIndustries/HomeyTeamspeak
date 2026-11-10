@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "The server came back online",
+    "nl": "De server is weer online"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    }
+  ]
+}

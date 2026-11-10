@@ -1,0 +1,31 @@
+{
+  "title": {
+    "en": "The server went offline",
+    "nl": "De server ging offline"
+  },
+  "hint": {
+    "en": "Triggers when Homey can no longer reach the server.",
+    "nl": "Wordt geactiveerd als Homey de server niet meer kan bereiken."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "error",
+      "type": "string",
+      "title": {
+        "en": "Reason",
+        "nl": "Reden"
+      },
+      "example": {
+        "en": "Connection refused",
+        "nl": "Verbinding geweigerd"
+      }
+    }
+  ]
+}

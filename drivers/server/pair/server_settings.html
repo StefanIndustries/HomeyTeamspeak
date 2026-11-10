@@ -1,0 +1,61 @@
+<style>
+  .ts-row { display: flex; gap: 12px; }
+  .ts-row .homey-form-group { flex: 1; min-width: 0; }
+  details summary { cursor: pointer; margin: 4px 0 12px; }
+</style>
+
+<p class="homey-text-small" data-i18n="pair.intro"></p>
+
+<form class="homey-form" id="form" onsubmit="return false">
+  <div class="homey-form-group">
+    <label class="homey-form-label" for="host" data-i18n="pair.host"></label>
+    <input class="homey-form-input" id="host" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"/>
+  </div>
+  <div class="homey-form-group">
+    <label class="homey-form-label" for="username" data-i18n="pair.username"></label>
+    <input class="homey-form-input" id="username" type="text" value="serveradmin" autocomplete="off" autocapitalize="off" spellcheck="false"/>
+  </div>
+  <div class="homey-form-group">
+    <label class="homey-form-label" for="password" data-i18n="pair.password"></label>
+    <input class="homey-form-input" id="password" type="password" autocomplete="off"/>
+  </div>
+  <details>
+    <summary class="homey-text-small" data-i18n="pair.advanced"></summary>
+    <div class="ts-row">
+      <div class="homey-form-group">
+        <label class="homey-form-label" for="query_port" data-i18n="pair.query_port"></label>
+        <input class="homey-form-input" id="query_port" type="number" value="10011" min="1" max="65535" inputmode="numeric"/>
+      </div>
+      <div class="homey-form-group">
+        <label class="homey-form-label" for="server_port" data-i18n="pair.server_port"></label>
+        <input class="homey-form-input" id="server_port" type="number" placeholder="9987" min="1" max="65535" inputmode="numeric"/>
+      </div>
+    </div>
+    <p class="homey-text-small-light" data-i18n="pair.advanced_help"></p>
+  </details>
+</form>
+
+<script type="application/javascript">
+  // Homey's own "Next" button opens the device list; the driver connects there using these values.
+  const FIELDS = ['host', 'username', 'password', 'query_port', 'server_port'];
+
+  Homey.setTitle(Homey.__('pair.title'));
+  document.querySelectorAll('[data-i18n]').forEach((node) => { node.textContent = Homey.__(node.dataset.i18n); });
+  document.getElementById('host').placeholder = Homey.__('pair.host_placeholder');
+
+  function sendForm() {
+    const data = {};
+    FIELDS.forEach((field) => { data[field] = document.getElementById(field).value; });
+    Homey.emit('form_changed', data).catch(() => {});
+  }
+
+  const form = document.getElementById('form');
+  form.addEventListener('input', sendForm);
+  form.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      sendForm();
+      Homey.nextView();
+    }
+  });
+  sendForm();
+</script>

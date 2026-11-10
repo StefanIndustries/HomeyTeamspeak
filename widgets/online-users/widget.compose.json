@@ -1,0 +1,45 @@
+{
+  "name": {
+    "en": "Online users",
+    "nl": "Online gebruikers"
+  },
+  "height": 200,
+  "settings": [
+    {
+      "id": "server",
+      "type": "autocomplete",
+      "title": {
+        "en": "TeamSpeak server",
+        "nl": "TeamSpeak server"
+      },
+      "hint": {
+        "en": "Can be left empty when only one server is added.",
+        "nl": "Mag leeg blijven als er maar één server is toegevoegd."
+      }
+    },
+    {
+      "id": "group-by-channel",
+      "type": "checkbox",
+      "title": {
+        "en": "Group by channel",
+        "nl": "Groeperen per kanaal"
+      },
+      "value": true
+    },
+    {
+      "id": "show-details",
+      "type": "checkbox",
+      "title": {
+        "en": "Show how long users are online",
+        "nl": "Toon hoe lang gebruikers online zijn"
+      },
+      "value": true
+    }
+  ],
+  "api": {
+    "getOnlineUsers": {
+      "method": "GET",
+      "path": "/"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "title": {
+    "en": "A user !{{is|is not}} online",
+    "nl": "Een gebruiker !{{is|is niet}} online"
+  },
+  "titleFormatted": {
+    "en": "[[user]] !{{is|is not}} online",
+    "nl": "[[user]] !{{is|is niet}} online"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    },
+    {
+      "type": "autocomplete",
+      "name": "user",
+      "title": {
+        "en": "User",
+        "nl": "Gebruiker"
+      },
+      "placeholder": {
+        "en": "Nickname",
+        "nl": "Bijnaam"
+      }
+    }
+  ]
+}

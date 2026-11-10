@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "The server !{{is|is not}} online",
+    "nl": "De server !{{is|is niet}} online"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    }
+  ]
+}

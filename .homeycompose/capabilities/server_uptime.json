@@ -1,0 +1,18 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Uptime",
+    "nl": "Uptime"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "days",
+    "nl": "dagen"
+  },
+  "decimals": 1,
+  "min": 0,
+  "insights": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/server_uptime.svg"
+}

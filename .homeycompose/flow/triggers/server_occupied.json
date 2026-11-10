@@ -1,0 +1,31 @@
+{
+  "title": {
+    "en": "The first user joined the empty server",
+    "nl": "De eerste gebruiker kwam op de lege server"
+  },
+  "hint": {
+    "en": "Triggers when the server goes from nobody to somebody online.",
+    "nl": "Wordt geactiveerd als er na een lege server weer iemand online komt."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "nickname",
+      "type": "string",
+      "title": {
+        "en": "Nickname",
+        "nl": "Bijnaam"
+      },
+      "example": {
+        "en": "Stefan",
+        "nl": "Stefan"
+      }
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "ServerQuery connection",
+      "nl": "ServerQuery verbinding"
+    },
+    "children": [
+      {
+        "id": "host",
+        "type": "text",
+        "label": {
+          "en": "Host",
+          "nl": "Host"
+        },
+        "value": "",
+        "hint": {
+          "en": "IP address or host name of the TeamSpeak server.",
+          "nl": "IP-adres of hostnaam van de TeamSpeak server."
+        }
+      },
+      {
+        "id": "query_port",
+        "type": "number",
+        "label": {
+          "en": "ServerQuery port",
+          "nl": "ServerQuery poort"
+        },
+        "value": 10011,
+        "min": 1,
+        "max": 65535,
+        "hint": {
+          "en": "The raw (telnet) ServerQuery port, 10011 by default. The SSH port 10022 is not supported.",
+          "nl": "De raw (telnet) ServerQuery poort, standaard 10011. De SSH poort 10022 wordt niet ondersteund."
+        }
+      },
+      {
+        "id": "server_port",
+        "type": "number",
+        "label": {
+          "en": "Voice port",
+          "nl": "Voice poort"
+        },
+        "value": 9987,
+        "min": 1,
+        "max": 65535,
+        "hint": {
+          "en": "Picks which virtual server on this TeamSpeak instance is monitored. Filled in automatically when the server is added.",
+          "nl": "Bepaalt welke virtuele server op deze TeamSpeak installatie wordt gevolgd. Wordt automatisch ingevuld bij het toevoegen."
+        }
+      },
+      {
+        "id": "username",
+        "type": "text",
+        "label": {
+          "en": "Query username",
+          "nl": "Query gebruikersnaam"
+        },
+        "value": "serveradmin"
+      },
+      {
+        "id": "password",
+        "type": "password",
+        "label": {
+          "en": "Query password",
+          "nl": "Query wachtwoord"
+        },
+        "value": ""
+      },
+      {
+        "id": "nickname",
+        "type": "text",
+        "label": {
+          "en": "Query nickname",
+          "nl": "Query bijnaam"
+        },
+        "value": "Homey",
+        "hint": {
+          "en": "Name of the query client, used for pokes and messages sent from Flows. Leave empty to keep the server default.",
+          "nl": "Naam van de query client, gebruikt voor pokes en berichten vanuit Flows. Laat leeg voor de standaard van de server."
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Monitoring",
+      "nl": "Monitoring"
+    },
+    "children": [
+      {
+        "id": "poll_interval",
+        "type": "number",
+        "label": {
+          "en": "Refresh interval",
+          "nl": "Verversinterval"
+        },
+        "value": 30,
+        "min": 10,
+        "max": 240,
+        "units": {
+          "en": "seconds",
+          "nl": "seconden"
+        },
+        "hint": {
+          "en": "Joins and leaves are picked up right away when the query account may receive server notifications. This interval is used for everything else and as a fallback.",
+          "nl": "Wie er bij komt of weggaat wordt direct opgepikt als het query account servermeldingen mag ontvangen. Dit interval wordt voor de rest en als terugval gebruikt."
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "name": {
+    "en": "TeamSpeak Server",
+    "nl": "TeamSpeak Server"
+  },
+  "class": "other",
+  "capabilities": [
+    "online_users",
+    "server_ping",
+    "server_packet_loss",
+    "server_uptime",
+    "alarm_server_offline"
+  ],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "icon": "{{driverAssetsPath}}/icon.svg"
+}

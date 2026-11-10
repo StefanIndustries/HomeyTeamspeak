@@ -1,0 +1,20 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Server offline",
+    "nl": "Server offline"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Server went offline",
+    "nl": "Server ging offline"
+  },
+  "insightsTitleFalse": {
+    "en": "Server came online",
+    "nl": "Server kwam online"
+  },
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/alarm_server_offline.svg"
+}

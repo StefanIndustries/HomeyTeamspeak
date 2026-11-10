@@ -1,0 +1,31 @@
+{
+  "title": {
+    "en": "More than a number of users !{{are|are not}} online",
+    "nl": "Meer dan een aantal gebruikers !{{is|is niet}} online"
+  },
+  "titleFormatted": {
+    "en": "More than [[count]] users !{{are|are not}} online",
+    "nl": "Meer dan [[count]] gebruikers !{{zijn|zijn niet}} online"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    },
+    {
+      "type": "number",
+      "name": "count",
+      "title": {
+        "en": "Users",
+        "nl": "Gebruikers"
+      },
+      "min": 0,
+      "step": 1,
+      "placeholder": {
+        "en": "3",
+        "nl": "3"
+      }
+    }
+  ]
+}

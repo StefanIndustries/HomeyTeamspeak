@@ -1,0 +1,88 @@
+{
+  "title": {
+    "en": "A specific user joined the server",
+    "nl": "Een specifieke gebruiker kwam op de server"
+  },
+  "titleFormatted": {
+    "en": "[[user]] joined the server",
+    "nl": "[[user]] kwam op de server"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    },
+    {
+      "type": "autocomplete",
+      "name": "user",
+      "title": {
+        "en": "User",
+        "nl": "Gebruiker"
+      },
+      "placeholder": {
+        "en": "Nickname",
+        "nl": "Bijnaam"
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "name": "nickname",
+      "type": "string",
+      "title": {
+        "en": "Nickname",
+        "nl": "Bijnaam"
+      },
+      "example": {
+        "en": "Stefan",
+        "nl": "Stefan"
+      }
+    },
+    {
+      "name": "channel",
+      "type": "string",
+      "title": {
+        "en": "Channel",
+        "nl": "Kanaal"
+      },
+      "example": {
+        "en": "Lobby",
+        "nl": "Lobby"
+      }
+    },
+    {
+      "name": "country",
+      "type": "string",
+      "title": {
+        "en": "Country",
+        "nl": "Land"
+      },
+      "example": {
+        "en": "NL",
+        "nl": "NL"
+      }
+    },
+    {
+      "name": "platform",
+      "type": "string",
+      "title": {
+        "en": "Platform",
+        "nl": "Platform"
+      },
+      "example": {
+        "en": "Windows",
+        "nl": "Windows"
+      }
+    },
+    {
+      "name": "online_users",
+      "type": "number",
+      "title": {
+        "en": "Online users",
+        "nl": "Online gebruikers"
+      },
+      "example": 3
+    }
+  ]
+}

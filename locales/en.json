@@ -1,0 +1,53 @@
+{
+  "pair": {
+    "title": "Connect to your TeamSpeak server",
+    "intro": "Homey reads who is online through the ServerQuery interface of your TeamSpeak server. Enter its query login, for example serveradmin, and tap Next.",
+    "host": "Host",
+    "host_placeholder": "ts.example.com or 192.168.1.10",
+    "query_port": "ServerQuery port",
+    "server_port": "Voice port (optional)",
+    "username": "Query username",
+    "password": "Query password",
+    "advanced": "Advanced",
+    "advanced_help": "The voice port is only needed when Homey can't find your server by itself, for example on a hosted server. Your host can tell you the query port and voice port. The SSH query port (10022) is not supported."
+  },
+  "errors": {
+    "host_required": "Enter the host of your TeamSpeak server",
+    "invalid_login": "The query username or password is incorrect",
+    "server_not_found": "No running virtual server was found on this voice port",
+    "insufficient_permissions": "The query account does not have enough permissions",
+    "banned": "Homey is temporarily banned by the server's flood protection. Add Homey's IP address to query_ip_allowlist.txt or wait a few minutes.",
+    "timeout": "The TeamSpeak server did not respond in time",
+    "connection_refused": "The connection was refused. Check the host and the ServerQuery port.",
+    "host_not_found": "The host could not be found",
+    "connection_reset": "The server closed the connection. Homey may be banned by the flood protection.",
+    "not_a_query_port": "This is not a raw ServerQuery port. Use the raw port (10011 by default), not the SSH port.",
+    "not_connected": "Not connected to the TeamSpeak server",
+    "user_not_online": "__name__ is not online",
+    "no_running_servers": "There is no running virtual server on this TeamSpeak instance",
+    "voice_port_required": "Homey couldn't find your server by itself. Go back and enter its voice port under Advanced."
+  },
+  "flow": {
+    "online_in": "Online in __channel__",
+    "last_seen": "Last seen __date__",
+    "match_nickname": "Match on this nickname"
+  },
+  "widget": {
+    "online": "online",
+    "offline": "Server offline",
+    "connecting": "Connecting…",
+    "nobody_online": "Nobody is online",
+    "away": "Away",
+    "mic_muted": "Microphone muted",
+    "sound_muted": "Sound muted",
+    "recording": "Recording",
+    "minutes": "__count__ min",
+    "hours": "__hours__ h __minutes__ min",
+    "days": "__days__ d __hours__ h",
+    "errors": {
+      "no_servers": "Add a TeamSpeak server in Homey first",
+      "select_server": "Select a TeamSpeak server in the widget settings",
+      "server_not_found": "The selected TeamSpeak server no longer exists"
+    }
+  }
+}

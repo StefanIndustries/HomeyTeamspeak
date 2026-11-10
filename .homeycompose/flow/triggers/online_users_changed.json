@@ -1,0 +1,24 @@
+{
+  "title": {
+    "en": "The number of online users changed",
+    "nl": "Het aantal online gebruikers veranderde"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "online_users",
+      "type": "number",
+      "title": {
+        "en": "Online users",
+        "nl": "Online gebruikers"
+      },
+      "example": 3
+    }
+  ]
+}

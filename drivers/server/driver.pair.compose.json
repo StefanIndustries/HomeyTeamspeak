@@ -1,0 +1,20 @@
+[
+  {
+    "id": "server_settings",
+    "navigation": {
+      "next": "list_devices"
+    }
+  },
+  {
+    "id": "list_devices",
+    "template": "list_devices",
+    "navigation": {
+      "prev": "server_settings",
+      "next": "add_devices"
+    }
+  },
+  {
+    "id": "add_devices",
+    "template": "add_devices"
+  }
+]

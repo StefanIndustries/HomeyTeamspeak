@@ -1,0 +1,33 @@
+{
+  "title": {
+    "en": "Send a message to the server chat",
+    "nl": "Stuur een bericht naar de serverchat"
+  },
+  "titleFormatted": {
+    "en": "Send [[message]] to the server chat",
+    "nl": "Stuur [[message]] naar de serverchat"
+  },
+  "hint": {
+    "en": "The query account needs permission to send server text messages.",
+    "nl": "Het query account heeft rechten nodig om serverberichten te sturen."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    },
+    {
+      "type": "text",
+      "name": "message",
+      "title": {
+        "en": "Message",
+        "nl": "Bericht"
+      },
+      "placeholder": {
+        "en": "Dinner is ready!",
+        "nl": "Het eten is klaar!"
+      }
+    }
+  ]
+}

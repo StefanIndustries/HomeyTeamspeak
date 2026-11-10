@@ -1,0 +1,53 @@
+{
+  "pair": {
+    "title": "Verbind met je TeamSpeak server",
+    "intro": "Homey leest wie er online is via de ServerQuery interface van je TeamSpeak server. Vul de query login in, bijvoorbeeld serveradmin, en tik op Volgende.",
+    "host": "Host",
+    "host_placeholder": "ts.voorbeeld.nl of 192.168.1.10",
+    "query_port": "ServerQuery poort",
+    "server_port": "Voice poort (optioneel)",
+    "username": "Query gebruikersnaam",
+    "password": "Query wachtwoord",
+    "advanced": "Geavanceerd",
+    "advanced_help": "De voice poort is alleen nodig als Homey je server niet zelf kan vinden, bijvoorbeeld bij een gehoste server. Je hostingpartij kan je de query poort en voice poort geven. De SSH query poort (10022) wordt niet ondersteund."
+  },
+  "errors": {
+    "host_required": "Vul de host van je TeamSpeak server in",
+    "invalid_login": "De query gebruikersnaam of het wachtwoord is onjuist",
+    "server_not_found": "Er is geen draaiende virtuele server gevonden op deze voice poort",
+    "insufficient_permissions": "Het query account heeft niet genoeg rechten",
+    "banned": "Homey is tijdelijk geblokkeerd door de floodbeveiliging van de server. Zet het IP-adres van Homey in query_ip_allowlist.txt of wacht een paar minuten.",
+    "timeout": "De TeamSpeak server reageerde niet op tijd",
+    "connection_refused": "De verbinding werd geweigerd. Controleer de host en de ServerQuery poort.",
+    "host_not_found": "De host kon niet worden gevonden",
+    "connection_reset": "De server verbrak de verbinding. Mogelijk is Homey geblokkeerd door de floodbeveiliging.",
+    "not_a_query_port": "Dit is geen raw ServerQuery poort. Gebruik de raw poort (standaard 10011), niet de SSH poort.",
+    "not_connected": "Niet verbonden met de TeamSpeak server",
+    "user_not_online": "__name__ is niet online",
+    "no_running_servers": "Er draait geen virtuele server op deze TeamSpeak installatie",
+    "voice_port_required": "Homey kon je server niet zelf vinden. Ga terug en vul de voice poort in onder Geavanceerd."
+  },
+  "flow": {
+    "online_in": "Online in __channel__",
+    "last_seen": "Laatst gezien __date__",
+    "match_nickname": "Vergelijk op deze bijnaam"
+  },
+  "widget": {
+    "online": "online",
+    "offline": "Server offline",
+    "connecting": "Verbinden…",
+    "nobody_online": "Er is niemand online",
+    "away": "Afwezig",
+    "mic_muted": "Microfoon gedempt",
+    "sound_muted": "Geluid gedempt",
+    "recording": "Neemt op",
+    "minutes": "__count__ min",
+    "hours": "__hours__ u __minutes__ min",
+    "days": "__days__ d __hours__ u",
+    "errors": {
+      "no_servers": "Voeg eerst een TeamSpeak server toe in Homey",
+      "select_server": "Kies een TeamSpeak server in de widget instellingen",
+      "server_not_found": "De gekozen TeamSpeak server bestaat niet meer"
+    }
+  }
+}

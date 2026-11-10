@@ -1,0 +1,51 @@
+{
+  "title": {
+    "en": "A user switched channels",
+    "nl": "Een gebruiker wisselde van kanaal"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "nickname",
+      "type": "string",
+      "title": {
+        "en": "Nickname",
+        "nl": "Bijnaam"
+      },
+      "example": {
+        "en": "Stefan",
+        "nl": "Stefan"
+      }
+    },
+    {
+      "name": "from_channel",
+      "type": "string",
+      "title": {
+        "en": "From channel",
+        "nl": "Van kanaal"
+      },
+      "example": {
+        "en": "Lobby",
+        "nl": "Lobby"
+      }
+    },
+    {
+      "name": "to_channel",
+      "type": "string",
+      "title": {
+        "en": "To channel",
+        "nl": "Naar kanaal"
+      },
+      "example": {
+        "en": "Gaming",
+        "nl": "Gaming"
+      }
+    }
+  ]
+}

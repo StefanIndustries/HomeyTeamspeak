@@ -1,0 +1,31 @@
+{
+  "title": {
+    "en": "The last user left the server",
+    "nl": "De laatste gebruiker verliet de server"
+  },
+  "hint": {
+    "en": "Triggers when nobody is online anymore.",
+    "nl": "Wordt geactiveerd als er niemand meer online is."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "nickname",
+      "type": "string",
+      "title": {
+        "en": "Nickname",
+        "nl": "Bijnaam"
+      },
+      "example": {
+        "en": "Stefan",
+        "nl": "Stefan"
+      }
+    }
+  ]
+}

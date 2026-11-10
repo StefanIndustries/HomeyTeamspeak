@@ -1,0 +1,45 @@
+{
+  "title": {
+    "en": "Poke a user",
+    "nl": "Poke een gebruiker"
+  },
+  "titleFormatted": {
+    "en": "Poke [[user]] with [[message]]",
+    "nl": "Poke [[user]] met [[message]]"
+  },
+  "hint": {
+    "en": "Shows a pop-up message to the user. Fails when the user is not online.",
+    "nl": "Toont een pop-up bericht aan de gebruiker. Mislukt als de gebruiker niet online is."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    },
+    {
+      "type": "autocomplete",
+      "name": "user",
+      "title": {
+        "en": "User",
+        "nl": "Gebruiker"
+      },
+      "placeholder": {
+        "en": "Nickname",
+        "nl": "Bijnaam"
+      }
+    },
+    {
+      "type": "text",
+      "name": "message",
+      "title": {
+        "en": "Message",
+        "nl": "Bericht"
+      },
+      "placeholder": {
+        "en": "Dinner is ready!",
+        "nl": "Het eten is klaar!"
+      }
+    }
+  ]
+}

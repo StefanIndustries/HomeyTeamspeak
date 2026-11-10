@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "strict": true,
+    "types": ["node"],
+    "outDir": ".homeybuild/"
+  },
+  "exclude": ["node_modules", ".homeybuild", "test"]
+}

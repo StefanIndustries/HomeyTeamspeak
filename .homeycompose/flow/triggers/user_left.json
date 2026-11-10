@@ -1,0 +1,61 @@
+{
+  "title": {
+    "en": "A user left the server",
+    "nl": "Een gebruiker verliet de server"
+  },
+  "hint": {
+    "en": "Triggers when anyone disconnects from the server.",
+    "nl": "Wordt geactiveerd als iemand de verbinding met de server verbreekt."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=server"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "nickname",
+      "type": "string",
+      "title": {
+        "en": "Nickname",
+        "nl": "Bijnaam"
+      },
+      "example": {
+        "en": "Stefan",
+        "nl": "Stefan"
+      }
+    },
+    {
+      "name": "channel",
+      "type": "string",
+      "title": {
+        "en": "Channel",
+        "nl": "Kanaal"
+      },
+      "example": {
+        "en": "Lobby",
+        "nl": "Lobby"
+      }
+    },
+    {
+      "name": "online_minutes",
+      "type": "number",
+      "title": {
+        "en": "Minutes online",
+        "nl": "Minuten online"
+      },
+      "example": 95
+    },
+    {
+      "name": "online_users",
+      "type": "number",
+      "title": {
+        "en": "Online users",
+        "nl": "Online gebruikers"
+      },
+      "example": 3
+    }
+  ]
+}

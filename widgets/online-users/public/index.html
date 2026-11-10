@@ -1,0 +1,223 @@
+<html>
+  <head>
+    <style>
+      :root {
+        --ts-text: var(--homey-text-color, #1a2234);
+        --ts-text-light: var(--homey-text-color-light, #8a8f9c);
+        --ts-line: var(--homey-line-color-light, rgba(128, 128, 128, 0.18));
+        --ts-blue: #1c80be;
+        --ts-green: #2fb565;
+        --ts-red: #e5484d;
+      }
+
+      body { margin: 0; color: var(--ts-text); }
+
+      .header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+      .logo { flex: none; width: 22px; height: 22px; }
+      .server { flex: 1; min-width: 0; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .count {
+        flex: none; display: flex; align-items: center; gap: 6px;
+        color: var(--ts-text-light); font-size: 0.9em; font-variant-numeric: tabular-nums;
+      }
+      .count strong { color: var(--ts-text); font-weight: 600; }
+      .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ts-green); }
+      .status-dot.offline { background: var(--ts-red); }
+      .status-dot.unknown { background: var(--ts-text-light); }
+
+      .channel {
+        display: flex; justify-content: space-between; align-items: baseline;
+        margin-top: 8px; padding-bottom: 3px; border-bottom: 1px solid var(--ts-line);
+        color: var(--ts-text-light); font-size: 0.8em; font-weight: 600; letter-spacing: 0.02em;
+      }
+      .channel span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+      ul { list-style: none; margin: 0; padding: 0; }
+      li { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--ts-line); }
+      li:last-child { border-bottom: none; }
+      li.away .avatar, li.away .name { opacity: 0.5; }
+
+      .avatar {
+        flex: none; width: 28px; height: 28px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        color: #fff; font-weight: 600; font-size: 13px; text-transform: uppercase;
+      }
+      .body { flex: 1; min-width: 0; }
+      .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .meta { color: var(--ts-text-light); font-size: 0.8em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .icons { flex: none; display: flex; gap: 4px; color: var(--ts-text-light); }
+      .icons svg { width: 16px; height: 16px; display: block; }
+      .icons .rec { color: var(--ts-red); }
+
+      .state { color: var(--ts-text-light); text-align: center; padding: 18px 8px 10px; }
+      .state.error { color: var(--ts-red); }
+    </style>
+  </head>
+
+  <body class="homey-widget">
+    <div class="header">
+      <svg class="logo" viewBox="0 0 138 135" aria-hidden="true">
+        <path d="M0.202763 72.0259C0.42805 69.8884 -0.0225232 67.391 0.42805 64.8035C1.10391 60.6185 3.46941 57.356 7.20917 55.5561C8.11032 55.1061 8.56089 54.6561 8.78618 53.4186C10.3632 44.3962 14.1029 36.0487 19.5323 28.5788C20.2082 27.6788 20.6588 27.2288 19.7576 25.9913C18.8565 24.6413 19.5323 23.1789 20.4335 22.0314C28.1158 13.4589 37.1498 7.1365 47.8959 3.62653C73.6687 -4.49589 96.265 1.03906 115.82 20.0964C117.622 21.8964 120.01 23.5839 117.622 26.6438C117.172 27.0938 117.847 27.5438 118.298 27.9938C123.84 35.6662 127.557 44.2387 129.269 53.5086C129.495 54.4086 130.171 54.8586 130.846 55.3086C135.487 57.671 137.853 61.631 137.853 66.941C137.853 72.2509 138.303 76.1884 137.628 80.8233C136.501 87.5958 129.72 92.2307 123.164 90.7457C121.362 90.2957 120.573 88.9457 120.573 87.0108C120.573 79.3383 120.799 71.6659 120.573 63.9935C119.898 43.3387 110.864 27.7688 92.8857 17.8239C63.283 1.57905 24.8491 19.9614 18.4059 53.5986C17.2795 59.3585 17.5048 65.456 17.5048 71.2159C17.5048 76.9759 17.5048 82.1733 17.2795 87.6858C17.2795 89.4857 16.153 90.7232 14.0128 90.7232C5.54204 91.1732 0 85.8633 0 77.2909C0.225287 75.9409 0.225287 74.2534 0.225287 71.9809" fill="#1C80BE"/>
+        <path d="M58.8417 99.1163C61.883 97.9913 64.1584 95.8538 64.8343 92.3438C65.5102 88.8339 61.5676 83.9964 56.2509 78.9114C50.7088 73.6015 43.4771 67.954 39.5346 65.9291C33.7673 62.4416 28.3379 65.4791 27.2114 72.2515C25.8597 79.6989 27.2114 86.6964 31.1765 92.9063C33.9926 97.3163 37.9576 99.2288 42.8238 99.6788C45.5272 99.5663 56.4987 100.129 58.8642 99.1163M83.6908 101.254C87.1827 101.704 90.4719 102.379 93.9639 102.604C98.6048 102.829 102.097 101.479 104.71 98.6438C107.977 95.1563 109.576 90.7463 109.351 86.1114C109.126 81.2514 105.161 78.4389 99.8664 79.3389C95.0002 80.0139 90.8324 82.1514 86.4167 83.7489C82.4517 85.3239 78.9598 87.2364 76.1437 89.7338C72.1786 93.4688 74.3414 98.5313 80.5593 100.466C81.3478 100.804 82.4742 101.029 83.7133 101.254M120.66 97.0913C119.984 96.4163 118.858 96.8663 118.295 97.7663C116.155 104.539 106.197 127.218 72.2913 129.603C32.2804 132.416 93.6485 141.011 111.176 128.028C117.168 123.394 123.949 118.781 123.724 105.461C123.724 102.874 122.485 98.4638 120.683 97.1138" fill="#1C80BE"/>
+      </svg>
+      <div class="server" id="server">TeamSpeak</div>
+      <div class="count" id="count" hidden><span class="status-dot" id="dot"></span><span id="count-text"></span></div>
+    </div>
+    <div id="content" class="state">…</div>
+
+    <script type="text/javascript">
+      const RELOAD_INTERVAL_MS = 60 * 1000;
+      const AVATAR_COLORS = ['#1c80be', '#2fb565', '#e5484d', '#f5a524', '#8e4ec6', '#12a594', '#d6409f', '#3e63dd', '#ad7f58', '#5b6577'];
+      const ICONS = {
+        mic: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V5a3 3 0 0 0-5.94-.6"/><path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"/><path d="M12 19v3M8 22h8M2 2l20 20"/></svg>',
+        sound: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m23 9-6 6M17 9l6 6"/></svg>',
+        away: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+        rec: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="7"/></svg>',
+      };
+
+      function onHomeyReady(Homey) {
+        const settings = Homey.getSettings();
+        const deviceId = settings.server && settings.server.id ? settings.server.id : '';
+        const groupByChannel = settings['group-by-channel'] !== false;
+        const showDetails = settings['show-details'] !== false;
+        const elements = {
+          server: document.getElementById('server'),
+          count: document.getElementById('count'),
+          countText: document.getElementById('count-text'),
+          dot: document.getElementById('dot'),
+          content: document.getElementById('content'),
+        };
+        let data = null;
+        let isReady = false;
+
+        const t = (key, tokens) => {
+          let text = Homey.__(`widget.${key}`) || key;
+          Object.entries(tokens || {}).forEach(([name, value]) => { text = text.split(`__${name}__`).join(String(value)); });
+          return text;
+        };
+
+        function el(tag, className, text) {
+          const node = document.createElement(tag);
+          if (className) node.className = className;
+          if (text !== undefined) node.textContent = text;
+          return node;
+        }
+
+        function icon(name, title, className) {
+          const span = el('span', className);
+          span.innerHTML = ICONS[name];
+          span.title = title;
+          span.setAttribute('aria-label', title);
+          return span;
+        }
+
+        function colorFor(name) {
+          let hash = 0;
+          for (const char of name) hash = (hash * 31 + char.codePointAt(0)) >>> 0;
+          return AVATAR_COLORS[hash % AVATAR_COLORS.length];
+        }
+
+        function duration(connectedAt) {
+          if (!connectedAt) return '';
+          const minutes = Math.max(0, Math.floor((Date.now() / 1000 - connectedAt) / 60));
+          if (minutes < 60) return t('minutes', { count: minutes });
+          const hours = Math.floor(minutes / 60);
+          if (hours < 24) return t('hours', { hours, minutes: minutes % 60 });
+          return t('days', { days: Math.floor(hours / 24), hours: hours % 24 });
+        }
+
+        function fitHeight() {
+          const height = document.body.scrollHeight;
+          if (!isReady) {
+            isReady = true;
+            Homey.ready({ height });
+          } else {
+            Homey.setHeight(height).catch(() => {});
+          }
+        }
+
+        function renderUser(user) {
+          const li = el('li', user.away ? 'away' : '');
+          const avatar = el('div', 'avatar', Array.from(user.nickname.trim())[0] || '?');
+          avatar.style.background = colorFor(user.nickname);
+          li.appendChild(avatar);
+
+          const body = el('div', 'body');
+          body.appendChild(el('div', 'name', user.nickname));
+          const meta = [];
+          if (user.away) meta.push(user.awayMessage || t('away'));
+          if (showDetails && user.connectedAt) meta.push(duration(user.connectedAt));
+          if (meta.length) body.appendChild(el('div', 'meta', meta.join(' · ')));
+          li.appendChild(body);
+
+          const icons = el('div', 'icons');
+          if (user.recording) icons.appendChild(icon('rec', t('recording'), 'rec'));
+          if (user.away) icons.appendChild(icon('away', t('away')));
+          if (user.inputMuted) icons.appendChild(icon('mic', t('mic_muted')));
+          if (user.outputMuted) icons.appendChild(icon('sound', t('sound_muted')));
+          if (icons.childNodes.length) li.appendChild(icons);
+          return li;
+        }
+
+        function renderList(users) {
+          const list = el('ul');
+          users.forEach((user) => list.appendChild(renderUser(user)));
+          return list;
+        }
+
+        function showState(message, isError) {
+          elements.content.className = isError ? 'state error' : 'state';
+          elements.content.textContent = message;
+          fitHeight();
+        }
+
+        function render() {
+          elements.server.textContent = data.name;
+          elements.count.hidden = false;
+          elements.dot.className = `status-dot${data.online === false ? ' offline' : data.online === null ? ' unknown' : ''}`;
+          elements.countText.replaceChildren();
+          const strong = el('strong', null, String(data.onlineUsers));
+          elements.countText.appendChild(strong);
+          elements.countText.appendChild(document.createTextNode(data.maxClients ? ` / ${data.maxClients}` : ` ${t('online')}`));
+
+          if (data.online === false) return showState(data.error ? `${t('offline')}: ${data.error}` : t('offline'), true);
+          if (data.online === null) return showState(t('connecting'));
+          if (data.onlineUsers === 0) return showState(t('nobody_online'));
+
+          elements.content.className = '';
+          elements.content.replaceChildren();
+          if (groupByChannel) {
+            data.groups.forEach((group) => {
+              const header = el('div', 'channel');
+              header.appendChild(el('span', null, group.channel));
+              header.appendChild(el('span', null, String(group.users.length)));
+              elements.content.appendChild(header);
+              elements.content.appendChild(renderList(group.users));
+            });
+          } else {
+            const users = data.groups.flatMap((group) => group.users)
+              .sort((a, b) => a.nickname.localeCompare(b.nickname, undefined, { sensitivity: 'base' }));
+            elements.content.appendChild(renderList(users));
+          }
+          fitHeight();
+        }
+
+        async function load() {
+          try {
+            const query = deviceId ? `?deviceId=${encodeURIComponent(deviceId)}` : '';
+            data = await Homey.api('GET', `/${query}`);
+            render();
+          } catch (err) {
+            if (!data) showState(err.message || String(err), true);
+          }
+        }
+
+        Homey.on('server-updated', (event) => {
+          if (!deviceId || !event || event.deviceId === deviceId) load();
+        });
+        // Also updates the "online for" durations.
+        setInterval(load, RELOAD_INTERVAL_MS);
+        load();
+      }
+    </script>
+  </body>
+</html>

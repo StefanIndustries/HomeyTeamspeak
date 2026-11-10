@@ -1,0 +1,1034 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.teamspeak",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "runtime": "nodejs",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "name": {
+    "en": "TeamSpeak"
+  },
+  "description": {
+    "en": "See who is online on your TeamSpeak server and automate on it.",
+    "nl": "Zie wie er online is op je TeamSpeak server en automatiseer erop."
+  },
+  "category": [
+    "internet"
+  ],
+  "tags": {
+    "en": [
+      "teamspeak",
+      "ts3",
+      "voice chat",
+      "gaming",
+      "server query",
+      "online users"
+    ],
+    "nl": [
+      "teamspeak",
+      "ts3",
+      "voicechat",
+      "gaming",
+      "server query",
+      "online gebruikers"
+    ]
+  },
+  "brandColor": "#1C80BE",
+  "homepage": "https://teamspeak.com/",
+  "source": "https://github.com/StefanIndustries/HomeyTeamspeak",
+  "bugs": {
+    "url": "https://github.com/StefanIndustries/HomeyTeamspeak/issues"
+  },
+  "support": "https://github.com/StefanIndustries/HomeyTeamspeak/issues",
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Stefan Simon"
+  },
+  "contributing": {
+    "donate": {
+      "bunq": {
+        "username": "StefanJSimon"
+      },
+      "paypal": {
+        "username": "StefanIndustries96"
+      }
+    }
+  },
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "The number of online users changed",
+          "nl": "Het aantal online gebruikers veranderde"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "online_users",
+            "type": "number",
+            "title": {
+              "en": "Online users",
+              "nl": "Online gebruikers"
+            },
+            "example": 3
+          }
+        ],
+        "id": "online_users_changed"
+      },
+      {
+        "title": {
+          "en": "The last user left the server",
+          "nl": "De laatste gebruiker verliet de server"
+        },
+        "hint": {
+          "en": "Triggers when nobody is online anymore.",
+          "nl": "Wordt geactiveerd als er niemand meer online is."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "nickname",
+            "type": "string",
+            "title": {
+              "en": "Nickname",
+              "nl": "Bijnaam"
+            },
+            "example": {
+              "en": "Stefan",
+              "nl": "Stefan"
+            }
+          }
+        ],
+        "id": "server_empty"
+      },
+      {
+        "title": {
+          "en": "The first user joined the empty server",
+          "nl": "De eerste gebruiker kwam op de lege server"
+        },
+        "hint": {
+          "en": "Triggers when the server goes from nobody to somebody online.",
+          "nl": "Wordt geactiveerd als er na een lege server weer iemand online komt."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "nickname",
+            "type": "string",
+            "title": {
+              "en": "Nickname",
+              "nl": "Bijnaam"
+            },
+            "example": {
+              "en": "Stefan",
+              "nl": "Stefan"
+            }
+          }
+        ],
+        "id": "server_occupied"
+      },
+      {
+        "title": {
+          "en": "The server went offline",
+          "nl": "De server ging offline"
+        },
+        "hint": {
+          "en": "Triggers when Homey can no longer reach the server.",
+          "nl": "Wordt geactiveerd als Homey de server niet meer kan bereiken."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "error",
+            "type": "string",
+            "title": {
+              "en": "Reason",
+              "nl": "Reden"
+            },
+            "example": {
+              "en": "Connection refused",
+              "nl": "Verbinding geweigerd"
+            }
+          }
+        ],
+        "id": "server_offline"
+      },
+      {
+        "title": {
+          "en": "The server came back online",
+          "nl": "De server is weer online"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          }
+        ],
+        "id": "server_online"
+      },
+      {
+        "title": {
+          "en": "A specific user joined the server",
+          "nl": "Een specifieke gebruiker kwam op de server"
+        },
+        "titleFormatted": {
+          "en": "[[user]] joined the server",
+          "nl": "[[user]] kwam op de server"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Nickname",
+              "nl": "Bijnaam"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "nickname",
+            "type": "string",
+            "title": {
+              "en": "Nickname",
+              "nl": "Bijnaam"
+            },
+            "example": {
+              "en": "Stefan",
+              "nl": "Stefan"
+            }
+          },
+          {
+            "name": "channel",
+            "type": "string",
+            "title": {
+              "en": "Channel",
+              "nl": "Kanaal"
+            },
+            "example": {
+              "en": "Lobby",
+              "nl": "Lobby"
+            }
+          },
+          {
+            "name": "country",
+            "type": "string",
+            "title": {
+              "en": "Country",
+              "nl": "Land"
+            },
+            "example": {
+              "en": "NL",
+              "nl": "NL"
+            }
+          },
+          {
+            "name": "platform",
+            "type": "string",
+            "title": {
+              "en": "Platform",
+              "nl": "Platform"
+            },
+            "example": {
+              "en": "Windows",
+              "nl": "Windows"
+            }
+          },
+          {
+            "name": "online_users",
+            "type": "number",
+            "title": {
+              "en": "Online users",
+              "nl": "Online gebruikers"
+            },
+            "example": 3
+          }
+        ],
+        "id": "specific_user_joined"
+      },
+      {
+        "title": {
+          "en": "A specific user left the server",
+          "nl": "Een specifieke gebruiker verliet de server"
+        },
+        "titleFormatted": {
+          "en": "[[user]] left the server",
+          "nl": "[[user]] verliet de server"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Nickname",
+              "nl": "Bijnaam"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "nickname",
+            "type": "string",
+            "title": {
+              "en": "Nickname",
+              "nl": "Bijnaam"
+            },
+            "example": {
+              "en": "Stefan",
+              "nl": "Stefan"
+            }
+          },
+          {
+            "name": "channel",
+            "type": "string",
+            "title": {
+              "en": "Channel",
+              "nl": "Kanaal"
+            },
+            "example": {
+              "en": "Lobby",
+              "nl": "Lobby"
+            }
+          },
+          {
+            "name": "online_minutes",
+            "type": "number",
+            "title": {
+              "en": "Minutes online",
+              "nl": "Minuten online"
+            },
+            "example": 95
+          },
+          {
+            "name": "online_users",
+            "type": "number",
+            "title": {
+              "en": "Online users",
+              "nl": "Online gebruikers"
+            },
+            "example": 3
+          }
+        ],
+        "id": "specific_user_left"
+      },
+      {
+        "title": {
+          "en": "A user joined the server",
+          "nl": "Een gebruiker kwam op de server"
+        },
+        "hint": {
+          "en": "Triggers when anyone connects to the server.",
+          "nl": "Wordt geactiveerd als iemand verbinding maakt met de server."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "nickname",
+            "type": "string",
+            "title": {
+              "en": "Nickname",
+              "nl": "Bijnaam"
+            },
+            "example": {
+              "en": "Stefan",
+              "nl": "Stefan"
+            }
+          },
+          {
+            "name": "channel",
+            "type": "string",
+            "title": {
+              "en": "Channel",
+              "nl": "Kanaal"
+            },
+            "example": {
+              "en": "Lobby",
+              "nl": "Lobby"
+            }
+          },
+          {
+            "name": "country",
+            "type": "string",
+            "title": {
+              "en": "Country",
+              "nl": "Land"
+            },
+            "example": {
+              "en": "NL",
+              "nl": "NL"
+            }
+          },
+          {
+            "name": "platform",
+            "type": "string",
+            "title": {
+              "en": "Platform",
+              "nl": "Platform"
+            },
+            "example": {
+              "en": "Windows",
+              "nl": "Windows"
+            }
+          },
+          {
+            "name": "online_users",
+            "type": "number",
+            "title": {
+              "en": "Online users",
+              "nl": "Online gebruikers"
+            },
+            "example": 3
+          }
+        ],
+        "id": "user_joined"
+      },
+      {
+        "title": {
+          "en": "A user left the server",
+          "nl": "Een gebruiker verliet de server"
+        },
+        "hint": {
+          "en": "Triggers when anyone disconnects from the server.",
+          "nl": "Wordt geactiveerd als iemand de verbinding met de server verbreekt."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "nickname",
+            "type": "string",
+            "title": {
+              "en": "Nickname",
+              "nl": "Bijnaam"
+            },
+            "example": {
+              "en": "Stefan",
+              "nl": "Stefan"
+            }
+          },
+          {
+            "name": "channel",
+            "type": "string",
+            "title": {
+              "en": "Channel",
+              "nl": "Kanaal"
+            },
+            "example": {
+              "en": "Lobby",
+              "nl": "Lobby"
+            }
+          },
+          {
+            "name": "online_minutes",
+            "type": "number",
+            "title": {
+              "en": "Minutes online",
+              "nl": "Minuten online"
+            },
+            "example": 95
+          },
+          {
+            "name": "online_users",
+            "type": "number",
+            "title": {
+              "en": "Online users",
+              "nl": "Online gebruikers"
+            },
+            "example": 3
+          }
+        ],
+        "id": "user_left"
+      },
+      {
+        "title": {
+          "en": "A user switched channels",
+          "nl": "Een gebruiker wisselde van kanaal"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "nickname",
+            "type": "string",
+            "title": {
+              "en": "Nickname",
+              "nl": "Bijnaam"
+            },
+            "example": {
+              "en": "Stefan",
+              "nl": "Stefan"
+            }
+          },
+          {
+            "name": "from_channel",
+            "type": "string",
+            "title": {
+              "en": "From channel",
+              "nl": "Van kanaal"
+            },
+            "example": {
+              "en": "Lobby",
+              "nl": "Lobby"
+            }
+          },
+          {
+            "name": "to_channel",
+            "type": "string",
+            "title": {
+              "en": "To channel",
+              "nl": "Naar kanaal"
+            },
+            "example": {
+              "en": "Gaming",
+              "nl": "Gaming"
+            }
+          }
+        ],
+        "id": "user_moved"
+      }
+    ],
+    "conditions": [
+      {
+        "title": {
+          "en": "Somebody !{{is|is not}} online",
+          "nl": "Er !{{is|is niet}} iemand online"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          }
+        ],
+        "id": "anyone_online"
+      },
+      {
+        "title": {
+          "en": "The server !{{is|is not}} online",
+          "nl": "De server !{{is|is niet}} online"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          }
+        ],
+        "id": "server_is_online"
+      },
+      {
+        "title": {
+          "en": "A user !{{is|is not}} online",
+          "nl": "Een gebruiker !{{is|is niet}} online"
+        },
+        "titleFormatted": {
+          "en": "[[user]] !{{is|is not}} online",
+          "nl": "[[user]] !{{is|is niet}} online"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Nickname",
+              "nl": "Bijnaam"
+            }
+          }
+        ],
+        "id": "user_is_online"
+      },
+      {
+        "title": {
+          "en": "More than a number of users !{{are|are not}} online",
+          "nl": "Meer dan een aantal gebruikers !{{is|is niet}} online"
+        },
+        "titleFormatted": {
+          "en": "More than [[count]] users !{{are|are not}} online",
+          "nl": "Meer dan [[count]] gebruikers !{{zijn|zijn niet}} online"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          },
+          {
+            "type": "number",
+            "name": "count",
+            "title": {
+              "en": "Users",
+              "nl": "Gebruikers"
+            },
+            "min": 0,
+            "step": 1,
+            "placeholder": {
+              "en": "3",
+              "nl": "3"
+            }
+          }
+        ],
+        "id": "users_online_more_than"
+      }
+    ],
+    "actions": [
+      {
+        "title": {
+          "en": "Poke a user",
+          "nl": "Poke een gebruiker"
+        },
+        "titleFormatted": {
+          "en": "Poke [[user]] with [[message]]",
+          "nl": "Poke [[user]] met [[message]]"
+        },
+        "hint": {
+          "en": "Shows a pop-up message to the user. Fails when the user is not online.",
+          "nl": "Toont een pop-up bericht aan de gebruiker. Mislukt als de gebruiker niet online is."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Nickname",
+              "nl": "Bijnaam"
+            }
+          },
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "Message",
+              "nl": "Bericht"
+            },
+            "placeholder": {
+              "en": "Dinner is ready!",
+              "nl": "Het eten is klaar!"
+            }
+          }
+        ],
+        "id": "poke_user"
+      },
+      {
+        "title": {
+          "en": "Send a message to the server chat",
+          "nl": "Stuur een bericht naar de serverchat"
+        },
+        "titleFormatted": {
+          "en": "Send [[message]] to the server chat",
+          "nl": "Stuur [[message]] naar de serverchat"
+        },
+        "hint": {
+          "en": "The query account needs permission to send server text messages.",
+          "nl": "Het query account heeft rechten nodig om serverberichten te sturen."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=server"
+          },
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "Message",
+              "nl": "Bericht"
+            },
+            "placeholder": {
+              "en": "Dinner is ready!",
+              "nl": "Het eten is klaar!"
+            }
+          }
+        ],
+        "id": "send_server_message"
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "TeamSpeak Server",
+        "nl": "TeamSpeak Server"
+      },
+      "class": "other",
+      "capabilities": [
+        "online_users",
+        "server_ping",
+        "server_packet_loss",
+        "server_uptime",
+        "alarm_server_offline"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/server/assets/images/small.png",
+        "large": "/drivers/server/assets/images/large.png",
+        "xlarge": "/drivers/server/assets/images/xlarge.png"
+      },
+      "icon": "/drivers/server/assets/icon.svg",
+      "id": "server",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "ServerQuery connection",
+            "nl": "ServerQuery verbinding"
+          },
+          "children": [
+            {
+              "id": "host",
+              "type": "text",
+              "label": {
+                "en": "Host",
+                "nl": "Host"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address or host name of the TeamSpeak server.",
+                "nl": "IP-adres of hostnaam van de TeamSpeak server."
+              }
+            },
+            {
+              "id": "query_port",
+              "type": "number",
+              "label": {
+                "en": "ServerQuery port",
+                "nl": "ServerQuery poort"
+              },
+              "value": 10011,
+              "min": 1,
+              "max": 65535,
+              "hint": {
+                "en": "The raw (telnet) ServerQuery port, 10011 by default. The SSH port 10022 is not supported.",
+                "nl": "De raw (telnet) ServerQuery poort, standaard 10011. De SSH poort 10022 wordt niet ondersteund."
+              }
+            },
+            {
+              "id": "server_port",
+              "type": "number",
+              "label": {
+                "en": "Voice port",
+                "nl": "Voice poort"
+              },
+              "value": 9987,
+              "min": 1,
+              "max": 65535,
+              "hint": {
+                "en": "Picks which virtual server on this TeamSpeak instance is monitored. Filled in automatically when the server is added.",
+                "nl": "Bepaalt welke virtuele server op deze TeamSpeak installatie wordt gevolgd. Wordt automatisch ingevuld bij het toevoegen."
+              }
+            },
+            {
+              "id": "username",
+              "type": "text",
+              "label": {
+                "en": "Query username",
+                "nl": "Query gebruikersnaam"
+              },
+              "value": "serveradmin"
+            },
+            {
+              "id": "password",
+              "type": "password",
+              "label": {
+                "en": "Query password",
+                "nl": "Query wachtwoord"
+              },
+              "value": ""
+            },
+            {
+              "id": "nickname",
+              "type": "text",
+              "label": {
+                "en": "Query nickname",
+                "nl": "Query bijnaam"
+              },
+              "value": "Homey",
+              "hint": {
+                "en": "Name of the query client, used for pokes and messages sent from Flows. Leave empty to keep the server default.",
+                "nl": "Naam van de query client, gebruikt voor pokes en berichten vanuit Flows. Laat leeg voor de standaard van de server."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Monitoring",
+            "nl": "Monitoring"
+          },
+          "children": [
+            {
+              "id": "poll_interval",
+              "type": "number",
+              "label": {
+                "en": "Refresh interval",
+                "nl": "Verversinterval"
+              },
+              "value": 30,
+              "min": 10,
+              "max": 240,
+              "units": {
+                "en": "seconds",
+                "nl": "seconden"
+              },
+              "hint": {
+                "en": "Joins and leaves are picked up right away when the query account may receive server notifications. This interval is used for everything else and as a fallback.",
+                "nl": "Wie er bij komt of weggaat wordt direct opgepikt als het query account servermeldingen mag ontvangen. Dit interval wordt voor de rest en als terugval gebruikt."
+              }
+            }
+          ]
+        }
+      ],
+      "pair": [
+        {
+          "id": "server_settings",
+          "navigation": {
+            "next": "list_devices"
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "prev": "server_settings",
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    }
+  ],
+  "widgets": {
+    "online-users": {
+      "name": {
+        "en": "Online users",
+        "nl": "Online gebruikers"
+      },
+      "height": 200,
+      "settings": [
+        {
+          "id": "server",
+          "type": "autocomplete",
+          "title": {
+            "en": "TeamSpeak server",
+            "nl": "TeamSpeak server"
+          },
+          "hint": {
+            "en": "Can be left empty when only one server is added.",
+            "nl": "Mag leeg blijven als er maar één server is toegevoegd."
+          }
+        },
+        {
+          "id": "group-by-channel",
+          "type": "checkbox",
+          "title": {
+            "en": "Group by channel",
+            "nl": "Groeperen per kanaal"
+          },
+          "value": true
+        },
+        {
+          "id": "show-details",
+          "type": "checkbox",
+          "title": {
+            "en": "Show how long users are online",
+            "nl": "Toon hoe lang gebruikers online zijn"
+          },
+          "value": true
+        }
+      ],
+      "api": {
+        "getOnlineUsers": {
+          "method": "GET",
+          "path": "/"
+        }
+      },
+      "id": "online-users"
+    }
+  },
+  "capabilities": {
+    "alarm_server_offline": {
+      "type": "boolean",
+      "title": {
+        "en": "Server offline",
+        "nl": "Server offline"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Server went offline",
+        "nl": "Server ging offline"
+      },
+      "insightsTitleFalse": {
+        "en": "Server came online",
+        "nl": "Server kwam online"
+      },
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/alarm_server_offline.svg"
+    },
+    "online_users": {
+      "type": "number",
+      "title": {
+        "en": "Online users",
+        "nl": "Online gebruikers"
+      },
+      "getable": true,
+      "setable": false,
+      "decimals": 0,
+      "min": 0,
+      "insights": true,
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/online_users.svg"
+    },
+    "server_packet_loss": {
+      "type": "number",
+      "title": {
+        "en": "Packet loss",
+        "nl": "Pakketverlies"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%"
+      },
+      "decimals": 2,
+      "min": 0,
+      "max": 100,
+      "insights": true,
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/server_packet_loss.svg"
+    },
+    "server_ping": {
+      "type": "number",
+      "title": {
+        "en": "Average ping",
+        "nl": "Gemiddelde ping"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "ms"
+      },
+      "decimals": 0,
+      "min": 0,
+      "insights": true,
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/server_ping.svg"
+    },
+    "server_uptime": {
+      "type": "number",
+      "title": {
+        "en": "Uptime",
+        "nl": "Uptime"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "days",
+        "nl": "dagen"
+      },
+      "decimals": 1,
+      "min": 0,
+      "insights": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/server_uptime.svg"
+    }
+  }
+}

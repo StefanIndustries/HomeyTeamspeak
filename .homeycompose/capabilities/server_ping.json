@@ -1,0 +1,17 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Average ping",
+    "nl": "Gemiddelde ping"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "ms"
+  },
+  "decimals": 0,
+  "min": 0,
+  "insights": true,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/server_ping.svg"
+}
